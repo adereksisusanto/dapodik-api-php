@@ -1,45 +1,49 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "adereksisusanto/dapodik-api-php",
+    "description": "DAPODIK API for PHP",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        "adereksisusanto",
+        "dapodik-api-php"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/adereksisusanto/dapodik-api-php",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "adereksisusanto",
+            "email": "adereksisusanto@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^7.4|^8.0",
+        "ext-json": "*",
+        "doctrine/collections": "^1.8",
+        "guzzlehttp/guzzle": "^7.9"
     },
     "require-dev": {
-        :require_dev_testing,
-        :require_dev_codestyle,
+        "pestphp/pest": "^1.23",
+        "friendsofphp/php-cs-fixer": "^3.21.1",
         "spatie/ray": "^1.28"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src"
+            "Adereksisusanto\\DapodikAPI\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Adereksisusanto\\DapodikAPI\\Tests\\": "tests"
         }
     },
     "scripts": {
-        :scripts_testing,
-        :scripts_codestyle
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --allow-risky=yes"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            :plugins_testing,
+            "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
         }
     },
