@@ -35,9 +35,13 @@ $dapodik = new Adereksisusanto\DapodikAPI();
 // custom host & port
 $dapodik = new Adereksisusanto\DapodikAPI('custom_host','custom_port');
 
+$auth = $dapodik->login('username', 'password', 'kode_registrasi');
+$sekolah = $auth->sekolah();
+var_dump($sekolah);
+
 $api = $dapodik->api('token', 'npsn');
 $sekolah = $api->sekolah();
-var_dump($sekolah->get());
+var_dump($sekolah);
 ```
 
 ## Testing
