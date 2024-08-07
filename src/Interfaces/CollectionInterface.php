@@ -2,7 +2,10 @@
 
 namespace Adereksisusanto\DapodikAPI\Interfaces;
 
-interface CollectionInterface
+use Doctrine\Common\Collections\Collection as DoctrineCollection;
+use Doctrine\Common\Collections\Selectable as DoctrineSelectable;
+
+interface CollectionInterface extends DoctrineCollection, DoctrineSelectable
 {
     /**
      * @param int $flags [optional] <p>

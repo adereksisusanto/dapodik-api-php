@@ -21,8 +21,8 @@
         "guzzlehttp/guzzle": "^7.9"
     },
     "require-dev": {
-        "pestphp/pest": "^1.23",
         "friendsofphp/php-cs-fixer": "^3.21.1",
+        "pestphp/pest": "^1.23",
         "spatie/ray": "^1.28"
     },
     "autoload": {

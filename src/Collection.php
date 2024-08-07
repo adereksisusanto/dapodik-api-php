@@ -22,10 +22,8 @@ use Closure;
 use function count;
 use function current;
 
-use Doctrine\Common\Collections\Collection as DoctrineCollection;
 use Doctrine\Common\Collections\Criteria as DoctrineCriteria;
 use Doctrine\Common\Collections\Expr\ClosureExpressionVisitor;
-use Doctrine\Common\Collections\Selectable as DoctrineSelectable;
 
 use function end;
 use function in_array;
@@ -38,7 +36,7 @@ use ReturnTypeWillChange;
 use function spl_object_hash;
 use function uasort;
 
-class Collection implements DoctrineCollection, DoctrineSelectable, CollectionInterface
+class Collection implements CollectionInterface
 {
     protected array $items;
 

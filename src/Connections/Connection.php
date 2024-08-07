@@ -106,6 +106,39 @@ class Connection
         return $this->options['query'];
     }
 
+    public function setFormParams(string $key, $value)
+    {
+        $this->options['form_params'][$key] = $value;
+    }
+
+    public function getFormParams(string $key = null)
+    {
+        if (! is_null($key)) {
+            return $this->options['form_params'][$key];
+        }
+
+        return $this->options['form_params'];
+    }
+
+    public function setOptions(string $key, $value)
+    {
+        $this->options[$key] = $value;
+    }
+
+    public function getOptions(string $key = null)
+    {
+        if (! is_null($key)) {
+            return $this->options[$key];
+        }
+
+        return $this->options;
+    }
+
+    public function forgeOptions(string $options)
+    {
+        unset($this->options[$options]);
+    }
+
     /**
      * @param string $key
      * @param string $value
@@ -156,6 +189,26 @@ class Connection
         }
 
         return $page;
+    }
+
+    /**
+     * @param string|null $find key|value
+     * @return array|string
+     */
+    protected function getSemester(string $find = null)
+    {
+        $regex = "/name=['\"]semester_id['\"].*?\n.*?option.+value=['\"](\d+)['\"].+selected.*?>(.*?)<\/option>/";
+
+        $semesters = preg_match($regex, $this->loginPage(), $match) ? [$match[1], $match[2]] : [];
+
+        switch ($find) {
+            case "key":
+                return $semesters[0];
+            case "value":
+                return $semesters[1];
+            default:
+                return $semesters;
+        }
     }
 
     public function isConnect(): bool

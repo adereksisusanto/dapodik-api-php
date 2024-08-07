@@ -2,8 +2,8 @@
 
 namespace Adereksisusanto\DapodikAPI\Connections;
 
+use Adereksisusanto\DapodikAPI\Collection;
 use Adereksisusanto\DapodikAPI\Exceptions\DapodikException;
-use Adereksisusanto\DapodikAPI\Interfaces\ResponseInterface;
 use Adereksisusanto\DapodikAPI\Interfaces\WebServiceInterface;
 use Adereksisusanto\DapodikAPI\Response;
 
@@ -20,10 +20,10 @@ class WebServiceConnection extends Connection implements WebServiceInterface
     /**
      * Get Sekolah
      *
-     * @return ResponseInterface
+     * @return Collection
      * @throws DapodikException
      */
-    public function sekolah(): ResponseInterface
+    public function sekolah(): Collection
     {
         $uri = $this->getConfig('path').'/getSekolah';
         $response = $this->request('GET', $uri);
@@ -34,10 +34,10 @@ class WebServiceConnection extends Connection implements WebServiceInterface
     /**
      * Get Pengguna
      *
-     * @return ResponseInterface
+     * @return Collection
      * @throws DapodikException
      */
-    public function pengguna(): ResponseInterface
+    public function pengguna(): Collection
     {
         $uri = $this->getConfig('path').'/getPengguna';
         $response = $this->request('GET', $uri);
@@ -48,10 +48,10 @@ class WebServiceConnection extends Connection implements WebServiceInterface
     /**
      * Get Rombongan Belajar
      *
-     * @return ResponseInterface
+     * @return Collection
      * @throws DapodikException
      */
-    public function rombel(): ResponseInterface
+    public function rombel(): Collection
     {
         $uri = $this->getConfig('path').'/getRombonganBelajar';
         $response = $this->request('GET', $uri);
@@ -62,10 +62,10 @@ class WebServiceConnection extends Connection implements WebServiceInterface
     /**
      * Get Peserta Didik
      *
-     * @return ResponseInterface
+     * @return Collection
      * @throws DapodikException
      */
-    public function pd(): ResponseInterface
+    public function pd(): Collection
     {
         $uri = $this->getConfig('path').'/getPesertaDidik';
         $response = $this->request('GET', $uri);
@@ -76,10 +76,10 @@ class WebServiceConnection extends Connection implements WebServiceInterface
     /**
      * Get GTK (Guru dan Tendik)
      *
-     * @return ResponseInterface
+     * @return Collection
      * @throws DapodikException
      */
-    public function gtk(): ResponseInterface
+    public function gtk(): Collection
     {
         $uri = $this->getConfig('path').'/getGtk';
         $response = $this->request('GET', $uri);
