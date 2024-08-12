@@ -2,6 +2,7 @@
 
 namespace Adereksisusanto\DapodikAPI;
 
+use Adereksisusanto\DapodikAPI\Collections\Collection;
 use Adereksisusanto\DapodikAPI\Exceptions\DapodikException;
 use Psr\Http\Message\ResponseInterface as PsrResponse;
 

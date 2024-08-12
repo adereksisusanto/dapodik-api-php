@@ -2,7 +2,7 @@
 
 namespace Adereksisusanto\DapodikAPI\Interfaces;
 
-use Adereksisusanto\DapodikAPI\Collection;
+use Adereksisusanto\DapodikAPI\Collections\Collection;
 
 interface RestInterface
 {

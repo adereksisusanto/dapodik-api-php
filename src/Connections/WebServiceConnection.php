@@ -2,7 +2,7 @@
 
 namespace Adereksisusanto\DapodikAPI\Connections;
 
-use Adereksisusanto\DapodikAPI\Collection;
+use Adereksisusanto\DapodikAPI\Collections\Collection;
 use Adereksisusanto\DapodikAPI\Exceptions\DapodikException;
 use Adereksisusanto\DapodikAPI\Interfaces\WebServiceInterface;
 use Adereksisusanto\DapodikAPI\Response;
