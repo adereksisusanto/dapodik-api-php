@@ -17,12 +17,12 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
-        "doctrine/collections": "^2.2",
-        "guzzlehttp/guzzle": "^7.9"
+        "guzzlehttp/guzzle": "^7.9",
+        "illuminate/collections": "^8.83"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.21.1",
-        "pestphp/pest": "^2.35",
+        "pestphp/pest": "^v1.23",
         "spatie/ray": "^1.28"
     },
     "autoload": {
