@@ -2,6 +2,15 @@
 
 All notable changes to `dapodik-api-php` will be documented in this file.
 
+## 1.0.2 - 2024-08-12
+
+### What's Changed
+
+* Update pestphp/pest requirement from ^1.23 to ^2.35 by @dependabot in https://github.com/adereksisusanto/dapodik-api-php/pull/2
+* Update doctrine/collections requirement from ^1.8 to ^2.2 by @dependabot in https://github.com/adereksisusanto/dapodik-api-php/pull/3
+
+**Full Changelog**: https://github.com/adereksisusanto/dapodik-api-php/compare/1.0.1...1.0.2
+
 ## 1.0.1 - 2024-08-07
 
 **Full Changelog**: https://github.com/adereksisusanto/dapodik-api-php/compare/1.0.0...1.0.1
