@@ -1,0 +1,675 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="resources/images/logo_dapodik_circle.png">
+        <link href="login_assets/log/css/bootstrap.min.cosmo.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="resources/css/w3v4.css"> -->
+        <link rel="stylesheet" href="resources/css/w3.css">
+        <style>
+        :root {
+    /* COLORS */
+            --white: #e9e9e9;
+            --gray: #333;
+            --blue: #0367a6;
+            --lightblue: #008997;
+
+            /* RADII */
+            --button-radius: 0.7rem;
+
+            /* SIZES */
+            --max-width: 758px;
+            --max-height: 450px;
+
+            font-size: 16px;
+            font-family: -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell,
+    "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+        body {
+            align-items: center;
+            background-color: var(--white);
+            background: url("resources/images/backgrounds/bg_pdm_2025.png");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: grid;
+            height: 75vh;
+            place-items: center;
+            margin-top: 5em;
+}
+
+        .form__title {
+            font-weight: 300;
+            margin: 0;
+            margin-bottom: 1.25rem;
+}
+
+        .link {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+            text-decoration: none;
+}
+
+        .container {
+            background-color: var(--white);
+            border-radius: var(--button-radius);
+            box-shadow: 0 0.9rem 1.7rem rgba(0,
+    0,
+    0,
+    0.25),
+    0 0.7rem 0.7rem rgba(0,
+    0,
+    0,
+    0.22);
+            height: var(--max-height);
+            max-width: var(--max-width);
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+}
+
+        .container_title {
+            background-color: var(--white);
+            /* background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%); */
+            box-shadow: 0 0.9rem 1.7rem rgba(0,
+    0,
+    0,
+    0.25),
+    0 0.7rem 0.7rem rgba(0,
+    0,
+    0,
+    0.22);
+            height: var(300);
+            max-width: var(--max-width);
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+}
+
+        .container__form {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transition: all 0.6s ease-in-out;
+}
+
+        .container--signin {
+            left: 0;
+            width: 50%;
+            z-index: 2;
+}
+
+        .container.right-panel-active .container--signin {
+            transform: translateX(100%);
+}
+
+        .container--signup {
+            left: 0;
+            opacity: 0;
+            width: 50%;
+            z-index: 1;
+}
+
+        .container.right-panel-active .container--signup {
+            animation: show 0.6s;
+            opacity: 1;
+            transform: translateX(100%);
+            z-index: 5;
+}
+
+        .container__overlay {
+            height: 100%;
+            left: 50%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            transition: transform 0.6s ease-in-out;
+            width: 50%;
+            z-index: 100;
+}
+
+        .container.right-panel-active .container__overlay {
+            transform: translateX(-100%);
+}
+
+        .overlay {
+            background-color: var(--lightblue);
+            background: url("resources/images/backgrounds/bg_pdm_2025.png");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            left: -100%;
+            position: relative;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+            width: 200%;
+}
+
+        .container.right-panel-active .overlay {
+            transform: translateX(50%);
+}
+
+        .overlay__panel {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+            width: 50%;
+}
+
+        .overlay--left {
+            transform: translateX(-20%);
+}
+
+        .container.right-panel-active .overlay--left {
+            transform: translateX(0);
+}
+
+        .overlay--right {
+            right: 0;
+            transform: translateX(0);
+}
+
+        .container.right-panel-active .overlay--right {
+            transform: translateX(20%);
+}
+
+        .btn {
+            background-color: var(--blue);
+            background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
+            border-radius: 20px;
+            border: 1px solid var(--blue);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 0.1rem;
+            padding: 0.9rem 4rem;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+}
+
+        .form > .btn {
+            margin-top: 1.5rem;
+}
+
+        .btn:active {
+            transform: scale(0.95);
+}
+
+        .btn:focus {
+            outline: none;
+}
+
+        .form {
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 3rem;
+            height: 100%;
+            text-align: center;
+}
+
+        .input {
+            background-color: #fff;
+            border: none;
+            padding: 0.9rem 0.9rem;
+            margin: 0.5rem 0;
+            width: 100%;
+}
+
+        @keyframes show {
+    0%,
+    49.99% {
+                opacity: 0;
+                z-index: 1;
+    }
+
+            50%,
+    100% {
+                opacity: 1;
+                z-index: 5;
+    }
+}
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #000000;
+            color: #000000;
+            text-align: center;
+            display: block;
+}
+
+        .mask {
+            position: fixed;
+            top: 0px;
+            z-index: 999998;
+            width: 100%;
+            height: 100%;
+            background: black;
+            opacity: 0.5;
+            display: none
+}
+
+        .progres {
+            display: none;
+            position: fixed;
+            top: 0%;
+            background: black;
+            width: 100%;
+            opacity: 0.9;
+            z-index: 999999;
+            color: white;
+            margin: auto;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px
+}
+
+        .warning {
+            display: none;
+            position: fixed;
+            top: 0%;
+            background: black;
+            width: 100%;
+            opacity: 0.9;
+            z-index: 999999;
+            color: white;
+            margin: auto;
+            text-align: center;
+            padding-top: 20px
+}
+
+    </style>
+        <script type="text/javascript" src="login_assets/log/js/jquery.js"></script>
+        <script type="text/javascript" src="login_assets/log/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="login_assets/log/js/bootbox.min.js"></script>
+    </head>
+    <body>
+        <div class="mask"></div>
+        <div class="warning"></div>
+        <div id="statusbar" class="progres"> Memproses data.Mohon tunggu...
+        
+            <br>
+            <br>
+            <div class="w3-progress-container w3-light-red">
+                <div id="myBar" class="w3-progressbar w3-green" style="width:10%"></div>
+            </div>
+        </div>
+        <div class="container_title">
+            <div class="w3-bar-item" >
+                <div style="float:left;background:url(resources/images/logo_dapodik.png) no-repeat;background-size:contain;height:130px;width:130px;background-position: center center; margin-top: -10px">
+            </div>
+                <div style="margin-top: 10px">
+                    <font color=#000000 size=5px>Aplikasi
+                        <b> DAPODIK</b>
+                    </font>
+                    <br>
+                    <font color=#000000 size=3px>Satu Data Pendidikan Indonesia</font>
+                    <br>
+                    <font color=#000000 size=2px>Direktorat Jenderal Pendidikan Anak Usia Dini, Pendidikan Dasar dan Pendidikan Menengah</font>
+                    <br>
+                    <font color=#000000 size=2px>Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi </font>
+                </div>
+            </div>
+        </div>
+        <div class="container left-panel-active">
+            <!-- Sign Up -->
+            <div class="container__form container--signup">
+                <form action="" class="form" id="form1" method="POST" name="myForm">
+                    <h2 class="form__title">Registrasi</h2>
+                    <select name="jenis_registrasi" id="jenis_registrasi" class="input">
+                        <option style="font-weight:700" value="offline" selected>OFFLINE</option>
+                        <option style="font-weight:700" value="online">ONLINE</option>
+                    </select>
+                    <input type="text" name="kode_registrasi" id="kode_registrasi" placeholder="Kode Registrasi" class="input" />
+                    <input type="email" name="username" id="username" placeholder="Username" class="input" />
+                    <input type="password" name="password" id="password" placeholder="Password" class="input" />
+                    <button class="btn" onClick="validateForm()">Registrasi</button>
+                </form>
+            </div>
+            <!-- Sign In -->
+            <div class="container__form container--signin">
+                <form action="roleperan" method="POST" class="form" id="form2">
+                    <h2 class="form__title">Masuk</h2>
+                    <input type="email" placeholder="Username" class="input" name="username" value=""/>
+                    <input type="password" placeholder="Password" class="input" name="password" value=""/>
+                    <select name="semester_id" class="input">
+                        <option value='20241' selected>2024/2025 Ganjil</option>
+                    </select>
+                    <div>
+                        <input type="checkbox" name="rememberme"  />
+                        <font size=2em>Ingatkan saya pada peramban ini</font>
+                    </div>
+                    <button class="btn">Masuk</button>
+                </form>
+            </div>
+            <!-- Overlay -->
+            <div class="container__overlay">
+                <div class="overlay">
+                    <div class="overlay__panel overlay--left">
+                        <button class="btn" id="signIn">Masuk</button>
+                    </div>
+                    <div class="overlay__panel overlay--right">
+                        <button class="btn" id="signUp">Registrasi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="informasi">
+            <div class="w3-progress-container w3-light-blue">
+                <div class="w3-progressbar w3-blue" style="width:10%"></div>
+            </div>
+        </div>
+        <div class="footer" style="background-color:var(--white)">
+            <p>
+                <a href="https://www.kemdikbud.go.id/" target="_blank">Hak Cipta Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi</a>. Republik Indonesia &copy; 2023.
+            </p>
+        </div>
+    </body>
+    <script type="text/javascript">
+    function getMsg() {
+        ajaxurl = "ajax.php";
+        $.ajax({
+            type: "POST",
+            url: ajaxurl,
+            success: function (ret) {
+                $("#statusbar").html(ret);
+                setTimeout(getMsg(),
+            1)
+        },
+            error: function (obj, err) {
+                if (err == "timeout") {
+                    alert("Error Network")
+            }
+        }
+    })
+}
+
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\
+        ]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"
+    ]+)*)|(".+"))@((\[
+        [
+            0-9
+        ]{
+            1,
+            3
+        }\.[
+            0-9
+        ]{
+            1,
+            3
+        }\.[
+            0-9
+        ]{
+            1,
+            3
+        }\.[
+            0-9
+        ]{
+            1,
+            3
+        }
+    ])|(([a-zA-Z\-0-9
+    ]+\.)+[a-zA-Z
+    ]{
+        2,
+    }))$/;
+        return re.test(email)
+}
+
+    function ifServerOnline(ifOnline, ifOffline) {
+        var img = document.body.appendChild(document.createElement("img"));
+        var randomNum = Math.round(Math.random() * 10000);
+        img.onload = function () {
+            ifOnline && ifOnline.constructor == Function && ifOnline()
+    };
+        img.onerror = function () {
+            ifOffline && ifOffline.constructor == Function && ifOffline()
+    };
+        img.src = "http://sync1.kemdikbud.go.id/cek.png?rand=" + randomNum;
+        img.remove()
+}
+
+    function sendAjax(urlsync) {
+        $.ajax({
+            url: urlsync,
+            beforeSend: function () {
+                getMsg()
+        },
+            dataType: "JSONP",
+            jsonpCallback: "callbacksync",
+            type: 'GET',
+            timeout: 10000000000000,
+            data: {
+                'act': 'registrasi',
+                'kode_registrasi': document.forms.myForm.kode_registrasi.value,
+                'username': document.forms.myForm.username.value,
+                'password': document.forms.myForm.password.value
+        },
+            success: function (msg) {
+                $('.peringatan').remove();
+                $('.progres').hide();
+                $('.mask').hide();
+                if (msg.success) {
+                    var messagebox = "";
+                    $('.warning').append('
+        <div class="alert alert-dismissable alert-success peringatan" style="font-size:14px">' + 'Mohon tunggu, sedang mengakhiri proses registrasi' + '</div>');
+                    $.ajax({
+                        url: 'customrest/ceksekolah',
+                        dataType: 'json',
+                        type: 'GET',
+                        timeout: 100000,
+                        data: {
+                            'kode_registrasi': document.forms.myForm.kode_registrasi.value,
+                            'username': document.forms.myForm.username.value
+                    },
+                        success: function (message) {
+                            $('.warning').hide();
+                            messagebox += "NPSN: " + message.npsn + "
+        <br>";
+                            messagebox += "Nama Sekolah: " + message.nama + "
+        <br>";
+                            messagebox += "Nama Operator: " + message.nama_ops;
+                            bootbox.alert({
+                                title: 'Registrasi Berhasil',
+                                size: 'small',
+                                message: messagebox,
+                                closeButton: !1,
+                                callback: function (btn) {
+                                    window.location = '/'
+                            }
+                        })
+                    },
+                        error: function (msg) {
+                            $('.warning').hide();
+                            messagebox += "Terjadi kesalahan dalam mencari sekolah";
+                            bootbox.alert({
+                                title: 'Error',
+                                size: 'small',
+                                message: messagebox,
+                                closeButton: !1,
+                                callback: function (btn) {
+                                    window.location = '/'
+                            }
+                        })
+                    }
+                })
+            } else {
+                    $('.warning').append('
+        <div class="alert alert-dismissable alert-info peringatan" style="font-size:14px">' + msg.message + '</div>')
+            }
+                $('.warning').slideDown('fast');
+                setTimeout(function () {
+                    if (msg.success == 1) {} else {
+                        $('.warning').hide()
+                }
+            },
+            5000)
+        },
+            error: function (msg) {
+                $('.peringatan').remove();
+                $('.mask').hide();
+                $('.progres').hide();
+                $('.warning').append('
+        <div class="alert alert-dismissable alert-danger peringatan" style="font-size:14px">' + "Terjadi kesalahan dalam proses registrasi" + '</div>');
+                $('.warning').slideDown('fast');
+                setTimeout(function () {
+                    $('.warning').hide()
+            },
+            5000)
+        }
+    })
+}
+    function validateForm() {
+        $('.peringatan').remove();
+        var jenis_registrasi = document.getElementById("jenis_registrasi").value;
+        if (jenis_registrasi == null || jenis_registrasi == "") {
+            $('.warning').append('
+        <div class="alert alert-dismissable alert-danger peringatan" style="font-size:14px">' + 'Mohon lengkapi isian Jenis Registrasi terlebih dahulu!' + '</div>');
+            $('.warning').slideDown('fast');
+            setTimeout(function () {
+                $('.warning').hide()
+        },
+        5000);
+            return !1
+    }
+        var kode_registrasi = document.getElementById("kode_registrasi").value;
+        if (kode_registrasi == null || kode_registrasi == "") {
+            $('.warning').append('
+        <div class="alert alert-dismissable alert-danger peringatan" style="font-size:14px">' + 'Mohon lengkapi isian Kode Registrasi terlebih dahulu!' + '</div>');
+            $('.warning').slideDown('fast');
+            setTimeout(function () {
+                $('.warning').hide()
+        },
+        5000);
+            return !1
+    }
+        var username = document.getElementById("username").value;
+        if (username == null || username == "") {
+            $('.warning').append('
+        <div class="alert alert-dismissable alert-danger peringatan" style="font-size:14px">' + 'Mohon lengkapi isian Username terlebih dahulu!' + '</div>');
+            $('.warning').slideDown('fast');
+            setTimeout(function () {
+                $('.warning').hide()
+        },
+        5000);
+            return !1
+    } else {
+            if (!validateEmail(username)) {
+                $('.warning').append('
+        <div class="alert alert-dismissable alert-danger peringatan" style="font-size:14px">' + 'Mohon isikan format username dengan email yang benar!' + '</div>');
+                $('.warning').slideDown('fast');
+                setTimeout(function () {
+                    $('.warning').hide()
+            },
+            5000);
+                return !1
+        }
+    }
+        var password = document.getElementById("password").value;
+        if (password == null || password == "") {
+            $('.warning').append('
+        <div class="alert alert-dismissable alert-danger peringatan" style="font-size:14px">' + 'Mohon lengkapi isian Password terlebih dahulu!' + '</div>');
+            $('.warning').slideDown('fast');
+            setTimeout(function () {
+                $('.warning').hide()
+        },
+        5000);
+            return !1
+    }
+        $('.mask').show();
+        $('.progres').slideDown("slow");
+        var syncport = 5437;
+        var hostname = "localhost";
+
+        if (jenis_registrasi == "offline") {
+            var konfirm = confirm("Pastikan anda menggunakan prefill terbaru. Anda yakin?");
+            if (konfirm == !0) {
+                var urlsync = 'http: //' + hostname + ':' + syncport + '/prefill/push_prefill.php';
+                sendAjax(urlsync)
+        } else {
+                $('.peringatan').remove();
+                $('.progres').hide();
+                $('.mask').hide();
+                return !1
+        }
+    } else {
+            ifServerOnline(function () {
+                var urlsync = 'http: //' + hostname + ':' + syncport + '/index.php';
+                sendAjax(urlsync)
+        }, function () {
+                $('.warning').append('
+        <div class="alert alert-dismissable alert-danger peringatan" style="font-size:14px">' + 'Tidak terkoneksi dengan internet!' + '</div>');
+                $('.warning').slideDown('fast');
+                setTimeout(function () {
+                    $('.warning').hide()
+            },
+            5000);
+                return !1
+        })
+    }
+}
+
+    $(document).ready(function() {
+        window.history.pushState(null,
+    "", window.location.href);        
+        window.onpopstate = function() {
+            window.history.pushState(null,
+        "", window.location.href);
+    };
+});
+    const signInBtn = document.getElementById("signIn");
+    const signUpBtn = document.getElementById("signUp");
+    const fistForm = document.getElementById("form1");
+    const secondForm = document.getElementById("form2");
+    const container = document.querySelector(".container");
+
+    signInBtn.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+});
+
+    signUpBtn.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+});
+
+    fistForm.addEventListener("submit", (e) => e.preventDefault());
+    if (window.location.hash) {
+        var hash = window.location.hash.substring(1);
+        if (hash == 'PasswordSalah') {
+            var pesan = 'Password yang Anda masukkan salah!';
+    } else if (hash == 'PenggunaTidakTerdaftar') {
+            var pesan = 'Username yang Anda masukkan tidak terdaftar! Mohon gunakan username lain.';
+    } else if (hash == 'SemesterTidakAktif') {
+            var pesan = 'Semester telah dinonaktifkan.';
+    } else if (hash == 'RoleBelumDitentukan') {
+            var pesan = 'Role pengguna belum ditentukan! Untuk akun GTK mohon menghubungi Operator Sekolah dan untuk akun Operator Sekolah mohon menghubungi Dinas Pendidikan. Terima Kasih.';
+    } else if (hash == 'NotPermission') {
+            var pesan = 'Maaf, sekolah anda tidak diizinkan menggunakan Installer Aplikasi ini.';
+    }
+        $('.informasi').show(); alert(pesan);
+        window.location = "";
+}
+    </script>
