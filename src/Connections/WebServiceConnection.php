@@ -3,8 +3,8 @@
 namespace Adereksisusanto\DapodikAPI\Connections;
 
 use Adereksisusanto\DapodikAPI\Collections\Collection;
+use Adereksisusanto\DapodikAPI\Contracts\WebServiceInterface;
 use Adereksisusanto\DapodikAPI\Exceptions\DapodikException;
-use Adereksisusanto\DapodikAPI\Interfaces\WebServiceInterface;
 use Adereksisusanto\DapodikAPI\Response;
 
 class WebServiceConnection extends Connection implements WebServiceInterface

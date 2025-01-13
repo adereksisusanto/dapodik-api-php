@@ -5,8 +5,8 @@ namespace Adereksisusanto\DapodikAPI;
 use Adereksisusanto\DapodikAPI\Connections\Connection;
 use Adereksisusanto\DapodikAPI\Connections\RestConnection;
 use Adereksisusanto\DapodikAPI\Connections\WebServiceConnection;
-use Adereksisusanto\DapodikAPI\Interfaces\RestInterface;
-use Adereksisusanto\DapodikAPI\Interfaces\WebServiceInterface;
+use Adereksisusanto\DapodikAPI\Contracts\RestInterface;
+use Adereksisusanto\DapodikAPI\Contracts\WebServiceInterface;
 
 class Dapodik
 {

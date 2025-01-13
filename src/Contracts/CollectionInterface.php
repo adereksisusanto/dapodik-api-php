@@ -1,6 +1,6 @@
 <?php
 
-namespace Adereksisusanto\DapodikAPI\Interfaces;
+namespace Adereksisusanto\DapodikAPI\Contracts;
 
 use Doctrine\Common\Collections\Collection as DoctrineCollection;
 use Doctrine\Common\Collections\Selectable as DoctrineSelectable;

@@ -3,8 +3,8 @@
 namespace Adereksisusanto\DapodikAPI\Connections;
 
 use Adereksisusanto\DapodikAPI\Collections\Collection;
+use Adereksisusanto\DapodikAPI\Contracts\RestInterface;
 use Adereksisusanto\DapodikAPI\Exceptions\DapodikException;
-use Adereksisusanto\DapodikAPI\Interfaces\RestInterface;
 use Adereksisusanto\DapodikAPI\Response;
 use GuzzleHttp\TransferStats;
 
@@ -141,14 +141,12 @@ class RestConnection extends Connection implements RestInterface
         if (! isset($query['jenis'])) {
             $query['jenis'] = '';
         }
-        switch ($query['jenis']) {
-            case "aktif":
-                return new Collection($this->pdt()->toArray());
-            case "keluar":
-                return new Collection($this->pdk()->toArray());
-            default:
-                return new Collection(array_merge($this->pdt()->toArray(), $this->pdk()->toArray()));
-        }
+
+        return match ($query['jenis']) {
+            "aktif" => new Collection($this->pdt()->toArray()),
+            "keluar" => new Collection($this->pdk()->toArray()),
+            default => new Collection(array_merge($this->pdt()->toArray(), $this->pdk()->toArray())),
+        };
     }
 
     /**

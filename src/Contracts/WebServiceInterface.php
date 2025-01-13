@@ -1,6 +1,6 @@
 <?php
 
-namespace Adereksisusanto\DapodikAPI\Interfaces;
+namespace Adereksisusanto\DapodikAPI\Contracts;
 
 use Adereksisusanto\DapodikAPI\Collections\Collection;
 
