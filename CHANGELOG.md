@@ -2,6 +2,10 @@
 
 All notable changes to `dapodik-api-php` will be documented in this file.
 
+## 2.0.0 - 2025-01-13
+
+**Full Changelog**: https://github.com/adereksisusanto/dapodik-api-php/compare/1.0.3...2.0.0
+
 ## 1.0.2 - 2024-08-12
 
 ### What's Changed
